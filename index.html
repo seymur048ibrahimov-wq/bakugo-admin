@@ -1960,6 +1960,30 @@ input[type=date]::-webkit-calendar-picker-indicator,input[type=time]::-webkit-ca
 .bigBox > h2{font-size:16.5px;font-weight:700;}
 @media(max-width:900px){ .bigBox table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;} .bigBox table td,.bigBox table th{white-space:nowrap;} }
 
+
+/* ===== PREMIUM CİLA (v11): giriş animasiyası, hover, fokus, cədvəl ===== */
+@keyframes bgPageIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes bgFadeUp{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+.page:not(.hidden){animation:bgPageIn .42s cubic-bezier(.2,.7,.2,1) both;}
+.cards .card{animation:bgFadeUp .5s cubic-bezier(.2,.7,.2,1) both;}
+.cards .card:nth-child(2){animation-delay:.05s}
+.cards .card:nth-child(3){animation-delay:.1s}
+.cards .card:nth-child(4){animation-delay:.15s}
+.cards .card:nth-child(5){animation-delay:.2s}
+.card,.bigBox{transition:transform .28s cubic-bezier(.2,.7,.2,1),box-shadow .28s,border-color .28s;}
+.card:hover{transform:translateY(-3px);border-color:rgba(255,106,43,.32);box-shadow:var(--shadow-lift);}
+.card .value{text-shadow:0 0 28px rgba(255,106,43,.25);}
+.bigBox table tbody tr{transition:background .18s;}
+.bigBox table tbody tr:hover{background:rgba(255,255,255,.035);}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid rgba(255,106,43,.75);outline-offset:2px;}
+.search-wrap{position:relative;}
+.search-wrap .kbd-hint{position:absolute;right:12px;top:50%;transform:translateY(-50%);font:600 11px/1 'Inter',sans-serif;color:#7d8397;border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:4px 6px;pointer-events:none;}
+.search:focus + .kbd-hint{display:none;}
+.rev-trend{font-size:12px;}
+@media (prefers-reduced-motion:reduce){
+  .page:not(.hidden),.cards .card{animation:none!important;}
+  .card:hover{transform:none;}
+}
 </style>
 </head>
 <body>
@@ -2103,7 +2127,7 @@ input[type=date]::-webkit-calendar-picker-indicator,input[type=time]::-webkit-ca
       </button>
       <div class="search-wrap">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-        <input class="search" id="globalSearch" placeholder="Sifariş, restoran, kuryer axtar...">
+        <input class="search" id="globalSearch" placeholder="Sifariş, restoran, kuryer axtar..."><span class="kbd-hint">/</span>
       </div>
       <div class="topbar-right">
         <div class="icon-btn" title="Bildirişlər" id="notifBtn">
@@ -2152,6 +2176,12 @@ input[type=date]::-webkit-calendar-picker-indicator,input[type=time]::-webkit-ca
           <h3>Aktiv restoran</h3>
           <div class="value" id="activeRestaurantsCard">0</div>
           <div class="trend flat">İnteqrasiya edilib</div>
+        </div>
+        <div class="card">
+          <div class="card-top"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div></div>
+          <h3>Bugünkü gəlir</h3>
+          <div class="value" id="revenueTodayCard">0.00 AZN</div>
+          <div class="trend flat rev-trend" id="revenueTodayTrend">Çatdırılmış sifarişlər</div>
         </div>
       </div>
       <div class="bigBox">
@@ -3731,6 +3761,12 @@ function updateDashboardCounters() {
   document.getElementById('usersCountCard').textContent = state.users.length;
   document.getElementById('onlineCouriersCard').textContent = state.couriers.filter(c => c.status === 'online').length;
   document.getElementById('activeRestaurantsCard').textContent = state.restaurants.filter(r => r.active).length;
+  const revToday = ordersToday.filter(o => o.status === 'delivered').reduce((s, o) => s + parseFloat(o.totalAmount || o.price || 0), 0);
+  document.getElementById('revenueTodayCard').textContent = revToday.toFixed(2) + ' AZN';
+  const cancelledToday = ordersToday.filter(o => o.status === 'cancelled').length;
+  document.getElementById('revenueTodayTrend').textContent = ordersToday.length
+    ? 'Ləğv nisbəti: ' + Math.round(cancelledToday / ordersToday.length * 100) + '%'
+    : 'Bu gün hələ sifariş yoxdur';
 
   const activeCount = state.orders.filter(o => ACTIVE_ORDER_STATUSES.includes(o.status)).length;
   const badge = document.getElementById('ordersActiveBadge');
@@ -8157,6 +8193,17 @@ document.getElementById('loginEmail').focus();
   };
   var lb = document.getElementById('loginInstallBtn'); if (lb) lb.addEventListener('click', function(){ window.__installApp(); });
 })();
+</script>
+<script>
+/* Klaviatura qısayolları: "/" axtarışa fokus, Esc axtarışdan çıxış */
+document.addEventListener('keydown', function(e){
+  var a = document.activeElement, tag = a && a.tagName;
+  if (e.key === '/' && !e.ctrlKey && !e.metaKey && !/INPUT|TEXTAREA|SELECT/.test(tag || '')) {
+    var g = document.getElementById('globalSearch');
+    if (g && !document.getElementById('appShell').classList.contains('hidden')) { e.preventDefault(); g.focus(); }
+  }
+  if (e.key === 'Escape' && a && a.id === 'globalSearch') a.blur();
+});
 </script>
 </body>
 </html>
