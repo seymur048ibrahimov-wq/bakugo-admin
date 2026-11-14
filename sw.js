@@ -3,7 +3,7 @@
    2) Firebase Cloud Messaging — tətbiq bağlı olanda push bildirişləri
    Bu fayl index.html ilə EYNİ qovluqda olmalıdır. */
 
-const CACHE = 'bakugo-admin-v1';
+const CACHE = 'bakugo-admin-v2';
 const PRECACHE = [
   './',
   './index.html',
