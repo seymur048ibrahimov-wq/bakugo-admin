@@ -93,7 +93,7 @@ try {
       body: d.body || 'Yeni hadisə var — baxmaq üçün toxunun.',
       icon: './icon-192.png',
       badge: './icon-96.png',
-      tag: d.orderId || 'bakugo-order',
+      tag: d.orderId || 'goroute-order',
       renotify: true,
       requireInteraction: true,
       vibrate: [400, 150, 400, 150, 400],

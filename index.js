@@ -54,7 +54,7 @@ async function sendToTokens(list, { title, body, link, tag, icon }) {
         notification: {
           icon: icon || APP_ICON.courier,
           badge: icon || APP_ICON.courier,
-          tag: tag || "bakugo",
+          tag: tag || "goroute",
           renotify: true,
           requireInteraction: true,
           vibrate: [400, 150, 400]

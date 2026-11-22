@@ -3799,7 +3799,7 @@ const firebaseConfig = {
 };
 
 window.__adminModuleReady = true;
-const app = initializeApp(firebaseConfig, "bakugo-admin");
+const app = initializeApp(firebaseConfig, "goroute-admin");
 const auth = getAuth(app);
 const db = getFirestore(app);
 
@@ -3821,7 +3821,7 @@ async function createAuthAccountSilently(email, password) {
         uid = cred2.user.uid;
       } catch (e2) {
         const e = new Error('email-in-use');
-        e.code = 'bakugo/email-in-use';
+        e.code = 'goroute/email-in-use';
         throw e;
       }
     }
@@ -3839,7 +3839,7 @@ async function assertNoDoc(col, uid) {
   const snap = await getDoc(doc(db, col, uid));
   if (snap.exists()) {
     const e = new Error('already-exists');
-    e.code = 'bakugo/already-exists';
+    e.code = 'goroute/already-exists';
     throw e;
   }
 }
@@ -3855,8 +3855,8 @@ function __explainErrCore(err) {
   const c = (err && err.code) || '';
   const m = {
     'auth/email-already-in-use': 'Bu e-poçt artıq istifadə olunub',
-    'bakugo/email-in-use': 'Bu e-poçt Firebase-də artıq var və yazdığınız şifrə uyğun gəlmir. Başqa e-poçt yazın və ya Firebase Console → Authentication-dan həmin istifadəçini silin.',
-    'bakugo/already-exists': 'Bu e-poçtla hesab artıq yaradılıb (sənəd mövcuddur)',
+    'goroute/email-in-use': 'Bu e-poçt Firebase-də artıq var və yazdığınız şifrə uyğun gəlmir. Başqa e-poçt yazın və ya Firebase Console → Authentication-dan həmin istifadəçini silin.',
+    'goroute/already-exists': 'Bu e-poçtla hesab artıq yaradılıb (sənəd mövcuddur)',
     'auth/weak-password': 'Şifrə ən azı 6 simvol olmalıdır',
     'auth/invalid-email': 'E-poçt formatı yanlışdır',
     'auth/operation-not-allowed': 'Firebase Console → Authentication → Sign-in method bölməsində "Email/Password" aktiv deyil',
