@@ -1,8 +1,8 @@
 {
   "id": "./",
-  "name": "BakuGo Admin",
-  "short_name": "BakuGo Admin",
-  "description": "BakuGo idarəetmə paneli: sifarişlər, kuryerlər, restoranlar, maliyyə və canlı nəzarət",
+  "name": "Go Route Admin",
+  "short_name": "Go Route Admin",
+  "description": "Go Route idarəetmə paneli: sifarişlər, kuryerlər, restoranlar, maliyyə və canlı nəzarət",
   "lang": "az",
   "dir": "ltr",
   "start_url": "./?source=pwa",

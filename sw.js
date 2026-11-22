@@ -1,9 +1,9 @@
-/* BakuGo Admin — Service Worker
+/* Go Route Admin — Service Worker
    1) Offline dəstəyi (PWABuilder və Play/TWA yoxlaması üçün)
    2) Firebase Cloud Messaging — tətbiq bağlı olanda push bildirişləri
    Bu fayl index.html ilə EYNİ qovluqda olmalıdır. */
 
-const CACHE = 'bakugo-admin-v2';
+const CACHE = 'goroute-admin-v3';
 const PRECACHE = [
   './',
   './index.html',
@@ -89,7 +89,7 @@ try {
   messaging.onBackgroundMessage((payload) => {
     if (payload && payload.notification) return;
     const d = (payload && payload.data) || {};
-    self.registration.showNotification(d.title || '🔔 BakuGo Admin', {
+    self.registration.showNotification(d.title || '🔔 Go Route Admin', {
       body: d.body || 'Yeni hadisə var — baxmaq üçün toxunun.',
       icon: './icon-192.png',
       badge: './icon-96.png',

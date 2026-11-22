@@ -1,4 +1,4 @@
-/* BakuGo — push bildiriş serveri (Firebase Cloud Functions, 2-ci nəsil)
+/* Go Route — push bildiriş serveri (Firebase Cloud Functions, 2-ci nəsil)
    1) sendPushQueue   : Admin paneldə "Real mobil push də göndər" seçilən kampaniyalar (pushQueue kolleksiyası)
    2) notifyNewOrder  : Sifariş "searching_courier" statusuna keçəndə ONLINE kuryerlərə push
    5) notifyAdmins* : adminlərə yeni sifariş, qəza, pul çıxarma push-u
@@ -91,7 +91,7 @@ exports.sendPushQueue = onDocumentCreated("pushQueue/{id}", async (event) => {
   try {
     const tokens = await collectTokens(coll);
     const r = tokens.length
-      ? await sendToTokens(tokens, { title: job.title || "BakuGo", body: job.body || "", link: APP_LINK[audience], icon: APP_ICON[audience], tag: "camp-" + (job.campaignId || event.params.id) })
+      ? await sendToTokens(tokens, { title: job.title || "Go Route", body: job.body || "", link: APP_LINK[audience], icon: APP_ICON[audience], tag: "camp-" + (job.campaignId || event.params.id) })
       : { success: 0, failure: 0 };
     const status = r.success === 0 ? "failed" : (r.failure > 0 ? "partial" : "sent");
     await snap.ref.update({ status, successCount: r.success, failureCount: r.failure, tokenCount: tokens.length, processedAt: FieldValue.serverTimestamp() });
@@ -152,7 +152,7 @@ exports.notifyRestaurantMessage = onDocumentCreated("notifications/{id}", async 
   const r = await db.collection("restaurants").doc(String(n.restaurantId)).get();
   const token = r.exists && r.data().fcmToken;
   if (!token) return;
-  await sendToTokens([{ token, ref: r.ref }], { title: n.title || "BakuGo", body: n.body || "", link: APP_LINK.restaurant, icon: APP_ICON.restaurant, tag: "msg-" + event.params.id });
+  await sendToTokens([{ token, ref: r.ref }], { title: n.title || "Go Route", body: n.body || "", link: APP_LINK.restaurant, icon: APP_ICON.restaurant, tag: "msg-" + event.params.id });
 });
 
 /* 5) ADMİNLƏRƏ push: yeni sifariş, qəza / kuryer tapılmadı, pul çıxarma sorğusu

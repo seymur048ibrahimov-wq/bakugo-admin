@@ -5,7 +5,7 @@
 <!-- Google Maps (bütün xəritələr) -->
 <script>
 /* =====================================================================
-   BakuGo — GOOGLE MAPS ADAPTERİ
+   Go Route — GOOGLE MAPS ADAPTERİ
    Tətbiqdəki bütün xəritələr Google Maps ilə işləyir. Köhnə kod Leaflet
    sintaksisi (L.map, L.marker, ...) ilə yazıldığı üçün burada həmin
    funksiyalar Google Maps JavaScript API üzərində yenidən qurulub.
@@ -259,7 +259,7 @@
       el.appendChild(mk('bg-map-sheen'));
       el.appendChild(mk('bg-map-border'));
       /* 6) canlı nişan (kiçik xəritələrdə) */
-      if (!big) el.appendChild(mk('bg-map-badge', '<i></i><b>BakuGo</b><span>Canlı xəritə</span>'));
+      if (!big) el.appendChild(mk('bg-map-badge', '<i></i><b>Go Route</b><span>Canlı xəritə</span>'));
       /* 7) şüşə idarə paneli: + / − / mənim yerim */
       if (this._o.zoomControl !== false) {
         var z = mk('bg-map-zoom',
@@ -1021,7 +1021,7 @@
 
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>BakuGo Admin</title>
+<title>Go Route Admin</title>
 <meta name="theme-color" content="#07080D">
 <meta name="color-scheme" content="dark">
 <link rel="manifest" href="manifest.json">
@@ -1031,7 +1031,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="BakuGo Admin">
+<meta name="apple-mobile-web-app-title" content="Go Route Admin">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1706,7 +1706,7 @@ tbody tr:hover{background:var(--bg);}
 #reportBody tr[data-rid]:hover{background:var(--bg);}
 
 /* =====================================================================
-   BakuGo Admin — PREMIUM GLASS TEMA (v10)
+   Go Route Admin — PREMIUM GLASS TEMA (v10)
    Bütün rənglər dəyişənlər üzərindən gəlir, ona görə köhnə bölmələr də
    avtomatik yeni görünüşü alır.
    ===================================================================== */
@@ -2018,7 +2018,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 <div id="loginScreen" class="login-screen">
   <div class="login-card">
     <div class="login-logo">
-      <div class="logo-mark"><img src="icon-192.png" alt="BakuGo"></div>
+      <div class="logo-mark"><img src="icon-192.png" alt="Go Route"></div>
       <div class="logo-text">Baku<span>Go</span></div>
     </div>
     <div class="login-title" id="loginTitle">Admin girişi</div>
@@ -2027,7 +2027,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
     <form id="loginForm" onsubmit="return false">
       <div class="login-field">
         <label>E-poçt</label>
-        <input type="email" id="loginEmail" placeholder="admin@bakugo.az" autocomplete="username" required>
+        <input type="email" id="loginEmail" placeholder="admin@goroute.az" autocomplete="username" required>
       </div>
       <div class="login-field">
         <label>Şifrə</label>
@@ -2045,7 +2045,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
   <div class="sidebar-overlay" id="sidebarOverlay"></div>
   <div class="sidebar">
     <div class="logo">
-      <div class="logo-mark"><img src="icon-192.png" alt="BakuGo"></div>
+      <div class="logo-mark"><img src="icon-192.png" alt="Go Route"></div>
       <div><div class="logo-text">Baku<span>Go</span></div><span class="logo-sub">Admin panel</span></div>
     </div>
     <div class="nav-label">Əsas</div>
@@ -2200,7 +2200,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
           <div class="dot hidden" id="notifDot"></div>
         </div>
         <div class="profile">
-          <div class="profile-text"><b id="profileName">Admin</b><span id="profileEmail">BakuGo Operator</span></div>
+          <div class="profile-text"><b id="profileName">Admin</b><span id="profileEmail">Go Route Operator</span></div>
           <div class="avatar" id="profileAvatar">A</div>
         </div>
       </div>
@@ -2954,7 +2954,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
         </table>
       </div>
       <div class="bigBox" style="margin-top:16px;">
-        <h2>⭐ Abunəlik (BakuGo Plus)</h2>
+        <h2>⭐ Abunəlik (Go Route Plus)</h2>
         <div class="settings-row"><div><h4>Abunəlik proqramı aktivdir</h4><p>Abunəçilər üçün pulsuz/endirimli çatdırılma</p></div><div class="switch" id="prPlusSw"></div></div>
         <div class="row2" style="display:flex;gap:12px;flex-wrap:wrap;">
           <div class="field" style="flex:1;min-width:160px;"><label>Aylıq qiymət (AZN)</label><input type="number" id="prPlusPrice" min="0" step="0.1" value="4.99"></div>
@@ -3400,7 +3400,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
     <form id="courierForm">
       <div class="modal-body">
         <div id="courierAuthFields">
-          <div class="field"><label>E-poçt (giriş üçün)</label><input type="email" id="courierEmail" placeholder="kuryer@bakugo.az" required></div>
+          <div class="field"><label>E-poçt (giriş üçün)</label><input type="email" id="courierEmail" placeholder="kuryer@goroute.az" required></div>
           <div class="field"><label>Şifrə</label><input type="password" id="courierPassword" minlength="6" placeholder="Ən azı 6 simvol" required></div>
           <div class="field-hint">Bu məlumatlarla kuryer Kuryer tətbiqinə birbaşa daxil ola biləcək. Hesab admin panelindən keçən istifadəçini çıxış etdirmədən yaradılır.</div>
         </div>
@@ -3429,7 +3429,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
     <form id="restaurantForm">
       <div class="modal-body">
         <div id="restaurantAuthFields">
-          <div class="field"><label>E-poçt (giriş üçün)</label><input type="email" id="restaurantEmail" placeholder="restoran@bakugo.az" required></div>
+          <div class="field"><label>E-poçt (giriş üçün)</label><input type="email" id="restaurantEmail" placeholder="restoran@goroute.az" required></div>
           <div class="field"><label>Şifrə</label><input type="password" id="restaurantPassword" minlength="6" placeholder="Ən azı 6 simvol" required></div>
           <div class="field-hint">Bu məlumatlarla restoran Restoran Panelinə birbaşa daxil ola biləcək.</div>
         </div>
@@ -3499,7 +3499,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
     <div class="modal-head"><h3>Yeni promo kod</h3><button class="modal-close" onclick="document.getElementById('promoModal').classList.add('hidden')">&times;</button></div>
     <form id="promoForm">
       <div class="modal-body">
-        <div class="field"><label>Promo kod</label><input type="text" id="promoCode" placeholder="Məs. BAKUGO20" required style="text-transform:uppercase;"></div>
+        <div class="field"><label>Promo kod</label><input type="text" id="promoCode" placeholder="Məs. GOROUTE20" required style="text-transform:uppercase;"></div>
         <div class="row2">
           <div class="field"><label>Endirim növü</label>
             <select id="promoDiscountType">
@@ -3768,7 +3768,7 @@ setTimeout(function(){
 </script>
 <script>
 /* Xəritə: Google Maps (yuxarıdakı BGMap adapteri) */
-/* ===== OSM xəritə qatı (BakuGo): rəsmi OSM plitələri, uğursuz olsa avtomatik ehtiyat plitə ===== */
+/* ===== OSM xəritə qatı (Go Route): rəsmi OSM plitələri, uğursuz olsa avtomatik ehtiyat plitə ===== */
 
 
 function __osmLayer(m){ /* Google Maps plitələri avtomatik gəlir — əlavə qat lazım deyil */ return null; }
@@ -5972,7 +5972,7 @@ async function ensureAdminProfile(user) {
 }
 function applyRoleToUi(role, user) {
   const roleLabels = { admin: 'Administrator', operator: 'Operator' };
-  const rl = window.__isOwner ? '👑 Özəl admin' : (roleLabels[role] || 'BakuGo Operator');
+  const rl = window.__isOwner ? '👑 Özəl admin' : (roleLabels[role] || 'Go Route Operator');
   document.getElementById('profileEmail').textContent = rl;
   document.getElementById('profileAvatar').classList.toggle('owner', !!window.__isOwner);
   document.getElementById('settingsAdminEmail').textContent = user.email || '—';
@@ -6773,7 +6773,7 @@ document.getElementById('exportCsvBtn').addEventListener('click', () => {
   const rows = state.orders.map(o => [
     o.id, o.customerName || '', o.customerPhone || '', o.restaurantName || '', o.status || '', money(o.totalAmount||o.price), fmtDate(o.createdAt)
   ]);
-  exportToCsv('bakugo-siparisler', header, rows);
+  exportToCsv('goroute-siparisler', header, rows);
 });
 
 document.getElementById('exportUsersCsvBtn')?.addEventListener('click', () => {
@@ -6782,7 +6782,7 @@ document.getElementById('exportUsersCsvBtn')?.addEventListener('click', () => {
   const rows = state.users.map(u => [
     u.id, u.name || '', u.surname || '', u.phone || '', u.email || '', u.address || '', ordersCountForUser(u.id)
   ]);
-  exportToCsv('bakugo-istifadeciler', header, rows);
+  exportToCsv('goroute-istifadeciler', header, rows);
 });
 
 document.getElementById('exportTxnCsvBtn')?.addEventListener('click', () => {
@@ -6791,7 +6791,7 @@ document.getElementById('exportTxnCsvBtn')?.addEventListener('click', () => {
   const rows = state.transactions.map(t => [
     t.id, t.party || '', t.dateLabel || '', money(t.amount), t.method === 'bank' ? 'Bank hesabı' : 'Kart', t.status || ''
   ]);
-  exportToCsv('bakugo-odenisler', header, rows);
+  exportToCsv('goroute-odenisler', header, rows);
 });
 
 /* ============================================================
@@ -7470,7 +7470,7 @@ bulkEl('bulkTemplateBtn').addEventListener('click', () => {
   const csv = '\uFEFFAd;Qiymət;Kateqoriya;Endirim %;Şəkil\r\nLahmacun;4.50;Restoranlar;;lahmacun.jpg\r\nDöner;6.00;Restoranlar;10;doner.jpg\r\nCola 0.5L;1.80;İçkilər;;\r\n';
   const a = document.createElement('a');
   a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8' }));
-  a.download = 'bakugo-menyu-sablon.csv'; document.body.appendChild(a); a.click(); a.remove();
+  a.download = 'goroute-menyu-sablon.csv'; document.body.appendChild(a); a.click(); a.remove();
 });
 
 async function bulkRunImport() {
@@ -8698,7 +8698,7 @@ document.getElementById('ownLogCol').addEventListener('change', () => renderOwne
 document.getElementById('ownerOpenMapBtn').addEventListener('click', () => goPage('map'));
 document.getElementById('ownerExportLogBtn').addEventListener('click', () => {
   const rows = state.adminLogs.map((l) => { const x = logText(l); return [new Date(l.ts || 0).toLocaleString('az-AZ'), __adminName(l.uid, l.email), l.email || '', x.text, x.sub || '']; });
-  exportToCsv('bakugo_admin_jurnal', ['Vaxt', 'Admin', 'E-poçt', 'Əməliyyat', 'Təfərrüat'], rows);
+  exportToCsv('goroute_admin_jurnal', ['Vaxt', 'Admin', 'E-poçt', 'Əməliyyat', 'Təfərrüat'], rows);
 });
 document.getElementById('ownSavePermsBtn').addEventListener('click', async (e) => {
   const btn = e.currentTarget;
@@ -9080,7 +9080,7 @@ function computeFees(p, subtotal, km, timeStr, isPlus) {
   (p.rules || []).forEach(r => { if (r.active !== false && +r.fee && inRange(timeStr, r.from, r.to)) { delivery += +r.fee; lines.push(['⏰ ' + (r.name || 'Pik saat'), +r.fee]); } });
   if (p.surgeMultiplier > 1) { const extra = delivery * (p.surgeMultiplier - 1); delivery += extra; lines.push(['📈 Surge ×' + p.surgeMultiplier, extra]); }
   if (p.freeThreshold > 0 && subtotal >= p.freeThreshold) { lines.push(['🎁 Pulsuz çatdırılma həddi', -delivery]); delivery = 0; }
-  else if (isPlus && p.plusEnabled && subtotal >= p.plusMinOrder) { const d = delivery * p.plusDiscountPct / 100; delivery -= d; lines.push(['⭐ BakuGo Plus endirimi', -d]); }
+  else if (isPlus && p.plusEnabled && subtotal >= p.plusMinOrder) { const d = delivery * p.plusDiscountPct / 100; delivery -= d; lines.push(['⭐ Go Route Plus endirimi', -d]); }
   const service = subtotal * (p.servicePct || 0) / 100;
   if (service) lines.push(['Servis haqqı (' + p.servicePct + '%)', service]);
   let small = 0; if (p.smallThreshold > 0 && subtotal < p.smallThreshold) { small = +p.smallFee || 0; if (small) lines.push(['Kiçik sifariş əlavəsi', small]); }
