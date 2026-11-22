@@ -3,7 +3,7 @@
    2) Firebase Cloud Messaging — tətbiq bağlı olanda push bildirişləri
    Bu fayl index.html ilə EYNİ qovluqda olmalıdır. */
 
-const CACHE = 'goroute-admin-v3';
+const CACHE = 'goroute-admin-v4';
 const PRECACHE = [
   './',
   './index.html',
